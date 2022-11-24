@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenIOC xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="1a2e994f-efa1-443a-8d1d-57cba26d0863" last-modified="2022-11-24T07:02:36Z" published-date="0001-01-01T00:00:00" xmlns="http://openioc.org/schemas/OpenIOC_1.1">
+  <metadata>
+    <short_description>Incident_backdoor_IOC</short_description>
+    <authored_by>Miguel Torres Gómez</authored_by>
+    <authored_date>2022-11-24T06:46:06Z</authored_date>
+    <links />
+  </metadata>
+  <criteria>
+    <Indicator operator="OR" id="dba8dec2-3b8e-44db-a9e2-70dcb71de1de">
+      <Indicator operator="AND" id="1bab3f11-78e8-4193-85c7-f2477712b3d9">
+        <IndicatorItem id="886118c6-6f65-4df9-82d0-be552c564aab" condition="contains" preserve-case="false" negate="false">
+          <Context document="FileItem" search="FileItem/FullPath" type="endpoint" />
+          <Content type="string">\Public\Music\</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="1886fa72-06a7-4a41-b718-55fb0172c2af">
+          <IndicatorItem id="2ee4b4e7-5a19-46e1-ad23-f3e953d27df2" condition="contains" preserve-case="false" negate="false">
+            <Context document="FileItem" search="FileItem/FileExtension" type="endpoint" />
+            <Content type="string">exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="d32252fc-b80d-4b7a-a8ec-78781c2d2a88" condition="contains" preserve-case="false" negate="false">
+            <Context document="FileItem" search="FileItem/FileExtension" type="endpoint" />
+            <Content type="string">dll</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </criteria>
+  <parameters />
+</OpenIOC>
